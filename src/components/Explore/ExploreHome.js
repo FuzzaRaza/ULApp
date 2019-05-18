@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-import { Platform,StatusBar,StyleSheet,Text,TextInput,View,ScrollView,Image,FlatList,SafeAreaView } from 'react-native';
+import { Platform,StatusBar,StyleSheet,Text,TextInput,View,ScrollView,Image,FlatList,SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Category from './Category';
 import Card from './Card';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Button } from 'native-base';
+import * as firebase from "firebase";
 
 class Explore extends Component {
     
-    componentWillMount(){
-        this.startHeaderHeight = 80
-        if(Platform.OS  ==  'android'){
-            // Separte Header From Top
-            this.startHeaderHeight = 70 + StatusBar.currentHeight    
-        }
-    }
-    
+    // componentWillMount(){
+    //     this.startHeaderHeight = 80
+    //     if(Platform.OS  ==  'android'){
+    //         // Separte Header From Top
+    //         this.startHeaderHeight = 70 + StatusBar.currentHeight    
+    //     }
+    // }
+
     render(){
         return(
             //SafeAreaView to show borders in iphone
@@ -50,6 +53,11 @@ class Explore extends Component {
                     >
                     {/* tags area */}
                         <View style={{flex:1,backgroundColor: 'white',paddingTop:20}}>
+                        
+                        <Button style={styles.button}>
+                            <Text >UPLOAD</Text>
+                            </Button>
+
                             <Text style={{fontSize:24,fontWeight:'700',paddingHorizontal:20}}>
                                 Popular Tags 
                             </Text>
@@ -108,5 +116,13 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    button: {
+        alignSelf: 'stretch',
+        //alignItems: 'center',
+        padding: 80,
+        //marginTop: 8,        
+        //backgroundColor: '#fff',
+        paddingVertical:  12
     }
   });

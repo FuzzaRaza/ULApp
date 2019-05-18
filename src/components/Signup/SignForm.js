@@ -23,16 +23,18 @@ constructor (props){
         password:''
     })
 }
-Signup=(email,Password)=>{
-try{
-    if (this.state.password.length<7)
-    {alert("Your password is short!")
-    return;}
-    firebase.auth().createUserWithEmailAndPassword(email,password)
-    }
-  catch(error){
-        console.log(error.toString())
-    }
+Signup=(email,password)=>{
+    try{
+        if (this.state.password.length<7)
+        {
+            alert("Your password is short!")
+            return;
+        }
+        firebase.auth().createUserWithEmailAndPassword(email,password)
+        }
+    catch(error){
+            console.log(error.toString())
+        }
 }
 LoginUser=(email,password)=>{
 try{
@@ -61,7 +63,7 @@ catch(error){
                     keyboardType="email-address"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    // underlineColorAndroid={'transparent'}
+                     underlineColorAndroid={'transparent'}
                 />  
 
                 <TextInput 
@@ -72,16 +74,18 @@ catch(error){
                     style={styles.input}
                     //ref={(input) => this.passwordInput = input}
                     onChangeText={(password)=> this.setState({password})}
-                    // underlineColorAndroid={'transparent'}
+                     underlineColorAndroid={'transparent'}
                 />
 
                 <TouchableOpacity style={styles.button}>
-                    <Button onPress={()=>this.LoginUser(this.state.email,this.state.password)}
+                    <Button onPress={()=>this.Signup(this.state.email,this.state.password)}
                     >
                     <Text style={styles.buttontext}>REGISTER</Text>
                     </Button>
-                    
-                    <Button onPress={()=>this.Signup(this.state.email,this.state.password)}
+                </TouchableOpacity>   
+
+                <TouchableOpacity style={styles.button}> 
+                    <Button onPress={()=>this.LoginUser(this.state.email,this.state.password)}
                     >
                     <Text style={styles.buttontext}>SIGN IN</Text>
                     </Button>
@@ -118,10 +122,10 @@ const styles  = StyleSheet.create({
         fontSize: 18
     },
     button: {
-        //alignSelf: 'stretch',
-        alignItems: 'center',
+        alignSelf: 'stretch',
+        //alignItems: 'center',
         padding: 80,
-        //marginTop: 10,        
+        //marginTop: 8,        
         //backgroundColor: '#fff',
         paddingVertical:  12
     },
@@ -129,6 +133,7 @@ const styles  = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
         textAlign: 'center',
-        fontWeight: '700'
+        fontWeight: '700',
+        marginBottom: 10
     }
 });
