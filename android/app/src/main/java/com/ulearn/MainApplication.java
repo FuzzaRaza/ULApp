@@ -3,6 +3,7 @@ package com.ulearn;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 import com.brentvatne.react.ReactVideoPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new ReactNativeYouTube(),
             new ReactVideoPackage(),
             new VectorIconsPackage(),
             new RNGoogleSigninPackage(),

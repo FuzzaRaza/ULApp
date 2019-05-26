@@ -20,15 +20,6 @@ export default class SettingsScreen extends React.Component {
       
         </Header>
         <Content>
-<Text></Text>
-<Text></Text>
-<Text></Text>
-<Text></Text>
-<Text></Text>
-<Text></Text>
-<Text></Text>
-<Text></Text>
-<Text></Text>
         <Button  iconLeft >
             <Icon name='people' />
             <Text onPress={() => this.props.navigation.navigate('Profile')}> Profile </Text>
