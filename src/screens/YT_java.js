@@ -35,7 +35,7 @@ export default class RCTYouTubeExample extends React.Component {
           if (this.state.containerWidth !== width) this.setState({ containerWidth: width });
         }}
       >
-        <Text style={styles.welcome}>{'ULearn -> REACT NATIVE Tutorials'}</Text>
+        <Text style={styles.welcome}>{'ULearn -> JAVA Tutorials'}</Text>
         <Text style={styles.instructions}>
           SoftInn Technologies
         </Text>
@@ -52,13 +52,13 @@ export default class RCTYouTubeExample extends React.Component {
             // // it affects the loaded native module
             // videoId="ncw4ISEU5ik"
             // // videoIds={['HcXNPI-IPPM', 'XXlZfc1TrD0', 'czcjU1w-c6k', 'uMK0prafzw0']}
-            playlistId="PLy9JCsy2u97mGklzG1Ynbe-f-5Fq8FVpi"
+            playlistId="PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al"
             play={this.state.isPlaying}
             loop={this.state.isLooping}
             fullscreen={this.state.fullscreen}
             controls={1}
             style={[
-              { height: PixelRatio.roundToNearestPixel(this.state.containerWidth / (16 / 10)) },
+              { height: PixelRatio.roundToNearestPixel(this.state.containerWidth / (16 / 9)) },
               styles.player,
             ]}
             onError={e => this.setState({ error: e.error })}
@@ -105,8 +105,8 @@ export default class RCTYouTubeExample extends React.Component {
             <Text style={styles.buttonText}>Next Video</Text>
           </TouchableOpacity>
         </View>
-
-{/*        // Go To Specific time in played video with seekTo()
+{/*
+        // Go To Specific time in played video with seekTo() 
         <View style={styles.buttonGroup}>
           <TouchableOpacity
             style={styles.button}
@@ -145,22 +145,6 @@ export default class RCTYouTubeExample extends React.Component {
             </View>
           )}
 
-{/*     // Get current played video's position index when playing videoIds (and playlist in iOS) 
-        <View style={styles.buttonGroup}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() =>
-              this._youTubeRef &&
-              this._youTubeRef
-                .videosIndex()
-                .then(index => this.setState({ videosIndex: index }))
-                .catch(errorMessage => this.setState({ error: errorMessage }))
-            }
-          >
-            <Text style={styles.buttonText}>Get Videos Index: {this.state.videosIndex}</Text>
-          </TouchableOpacity>
-        </View>
-*/}
         {/* Fullscreen */}
         {!this.state.fullscreen && (
           <View style={styles.buttonGroup}>
@@ -172,93 +156,18 @@ export default class RCTYouTubeExample extends React.Component {
             </TouchableOpacity>
           </View>
         )}
-{/*
-        // Update Progress & Duration (Android) 
-        {Platform.OS === 'android' && (
-          <View style={styles.buttonGroup}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() =>
-                this._youTubeRef
-                  ? this._youTubeRef
-                      .currentTime()
-                      .then(currentTime => this.setState({ currentTime }))
-                      .catch(errorMessage => this.setState({ error: errorMessage }))
-                  : this._youTubeRef
-                      .duration()
-                      .then(duration => this.setState({ duration }))
-                      .catch(errorMessage => this.setState({ error: errorMessage }))
-              }
-            >
-              <Text style={styles.buttonText}>Update Progress & Duration (Android)</Text>
-            </TouchableOpacity>
-          </View>
-        )}
 
-        {/* Standalone Player (iOS)
-        {Platform.OS === 'ios' &&
-          YouTubeStandaloneIOS && (
-            <View style={styles.buttonGroup}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() =>
-                  YouTubeStandaloneIOS.playVideo('KVZ-P-ZI6W4')
-                    .then(() => console.log('iOS Standalone Player Finished'))
-                    .catch(errorMessage => this.setState({ error: errorMessage }))
-                }
-              >
-                <Text style={styles.buttonText}>Launch Standalone Player</Text>
-              </TouchableOpacity>
-            </View>
-          )}
-*/}
         {/* Standalone Player (Android) */}
         {Platform.OS === 'android' &&
           YouTubeStandaloneAndroid && (
             <View style={styles.buttonGroup}>
-            {/*
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() =>
-                  YouTubeStandaloneAndroid.playVideo({
-                    apiKey: 'YOUR_API_KEY',
-                    videoId: 'KVZ-P-ZI6W4',
-                    autoplay: true,
-                    lightboxMode: false,
-                    startTime: 124.5,
-                  })
-                    .then(() => console.log('Android Standalone Player Finished'))
-                    .catch(errorMessage => this.setState({ error: errorMessage }))
-                }
-              >
-                <Text style={styles.buttonText}>Standalone: One Video</Text>
-              </TouchableOpacity>
-              */}
-              {/*}
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() =>
-                  YouTubeStandaloneAndroid.playVideos({
-                    apiKey: 'YOUR_API_KEY',
-                    videoIds: ['HcXNPI-IPPM', 'XXlZfc1TrD0', 'czcjU1w-c6k', 'uMK0prafzw0'],
-                    autoplay: false,
-                    lightboxMode: true,
-                    startIndex: 1,
-                    startTime: 99.5,
-                  })
-                    .then(() => console.log('Android Standalone Player Finished'))
-                    .catch(errorMessage => this.setState({ error: errorMessage }))
-                }
-              >
-                <Text style={styles.buttonText}>Videos</Text>
-              </TouchableOpacity>
-              */}
+
               <TouchableOpacity
                 style={styles.button}
                 onPress={() =>
                   YouTubeStandaloneAndroid.playPlaylist({
                     apiKey: 'YOUR_API_KEY',
-                    playlistId: 'PLy9JCsy2u97mGklzG1Ynbe-f-5Fq8FVpi',
+                    playlistId: 'PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al',
                     autoplay: false,
                     lightboxMode: false,
                     startIndex: 2,
@@ -273,7 +182,7 @@ export default class RCTYouTubeExample extends React.Component {
             </View>
           )}
 
-{/* Reload iFrame for updated props (Only needed for iOS) 
+        {/* Reload iFrame for updated props (Only needed for iOS) */}
         {Platform.OS === 'ios' && (
           <View style={styles.buttonGroup}>
             <TouchableOpacity
@@ -284,22 +193,21 @@ export default class RCTYouTubeExample extends React.Component {
             </TouchableOpacity>
           </View>
         )}
-*/}
+
         <Text style={styles.instructions}>
           {this.state.isReady ? 'Player is ready' : 'Player setting up...'}
         </Text>
         <Text style={styles.instructions}>Status: {this.state.status}</Text>
-{/*       
         <Text style={styles.instructions}>Quality: {this.state.quality}</Text>
 
-        // Show Progress
+        {/* Show Progress */}
         <Text style={styles.instructions}>
           Progress: {Math.trunc(this.state.currentTime)}s ({Math.trunc(this.state.duration / 60)}:{Math.trunc(
             this.state.duration % 60,
           )}s)
           {Platform.OS !== 'ios' && <Text> (Click Update Progress & Duration)</Text>}
         </Text>
-*/}
+
         <Text style={styles.instructions}>
           {this.state.error ? 'Error: ' + this.state.error : ''}
         </Text>
